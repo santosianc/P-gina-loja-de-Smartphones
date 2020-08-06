@@ -1,0 +1,239 @@
+/*reset do css*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-image: url(darkbl.jpg);
+    background-size: 5000px; 
+     color:white; /*referente ao texto (os paragrafos)*/
+     font-family: 'Nanum Gothic Coding', monospace;
+    height: 100vh; 
+    font-size: 12px;
+  }
+  
+  /* se a tela tiver pelo menos 400px vai carregar esses estilso  */
+  @media (min-width: 400px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  /*breakpoint*/
+  @media (min-width: 600px) {
+    body {
+      font-size: 16px; 
+    }
+  }
+
+  header {
+    height: 100vh;
+    display: flex;
+    justify-content: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu {
+    background-color: rgba(255, 255, 255, 0.486) ; 
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 1; /*aqui serve para aumentar a prioridade do eixo y. Antes as animações estavam sobrasaindo o menu (branco superior), agora ficam em segundo plano*/
+
+  }
+  
+  .menu ul {
+    display: flex; 
+    justify-content: space-around;
+  }
+  
+  .menu li {
+    list-style: none;
+  }
+
+  .menu a {
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 0.7s, color 0.7s;
+  }
+
+  .menu a:hover {
+    /*background-color:rgba(0, 0, 0, 0.685);*/ /*esse comando é para colocar cor no fundo das opções do menu superior*/
+    color: white;
+    
+  }
+  
+  a {
+    text-decoration: none;
+    color:#0b2c49; 
+  }
+  
+ /* a:hover {
+    text-decoration: underline;
+  }     sublinhado nas palavras do menu*/
+
+ /* .titulo {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+
+    animation: linear 1.5s animacaoTitulo forwards;  passa a animação, as curvas de movimento (se vai ser linear, velocidade
+  } */  /*animação do titulo "smart*/
+
+ /* @keyframes animacaoTitulo { pode colocar o estado inicial e o final, porém, nesse caso só ira colcoar o final (100%) pois já vai puxar o inicial o ".titulo" acima. muito brega, da pra tirar real isso kk
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }*/
+
+  .site-subtitle,
+  .site-title {
+    color:rgba(255, 255, 255, 0.705);
+    text-align: center;
+  }
+  
+  .site-title {
+    font-size: 4em;
+    font-family: 'Caveat', cursive;
+
+  }
+
+  .site-subtitle {
+    font-style: italic;
+    font-family: 'Nanum Gothic Coding', monospace;
+  } 
+
+  .sobre,
+  .contato,
+  .portfolio {
+    padding: 2em;
+    min-height: 100vh;   /*são o tamanho de cada tela, sobre, contato etc*/
+  }
+
+
+  @media (min-width: 1200px) {
+      .container  { 
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    } 
+  }
+
+  .sobre h2,
+  .contato h2,
+  .portfolio h2 {
+    font-family: 'Nanum Gothic Coding', monospace;
+    margin-bottom: 1.5em;
+  }
+
+  .sobre p {
+    text-indent: 1.5em;
+    margin-bottom: 1.3em;
+    text-align: justify;
+  }
+
+  .sobre a {
+    color: cyan;
+  }
+
+  .sobre .avatar {
+    float: right;
+    margin-left: 1.5em;
+  }
+
+  .sobre .avatar img {
+    border-radius: 15%;
+    max-width: 300px;
+    max-height: 225px;
+    width: auto;
+    height: auto;
+  }
+
+  .portfolio .grid {
+    display: flex;
+    gap: 2em;
+  }
+
+  @media (min-width: 560px) {
+    .portfolio .grid {
+      grid-template-columns: 240px 240px;
+      }  /*aqui significa que a oarte das imagens vão ter duas colunas de 240px de largura, da para configurar quantas colunas quiser e o site quebra os padrões e mostra essa quantidade mesmo fugindo da largura visível*/
+  }
+
+  @media (min-width: 880px) {
+    .portfolio .grid {
+      grid-template-columns: 240px 240px 240px;
+      align-content: center; /*o align itens afasta os itens, esse nao*/
+      justify-content: center;
+      height: calc(100vh - 8em - 48px);
+      } 
+  }
+
+  .portfolio figure {
+    text-align: center;
+  }
+
+  .img-portfolio {
+    height: 180px;
+    width: 240px;
+    object-fit: cover; /*faz ajuste nas imagens sem deformar*/
+    object-fit: left bottom;
+    border-radius: 20%;
+    transition:transform 500ms; /*animação da mudança de escala das imagens*/
+  }
+
+  .img-portfolio:hover {
+    transform: scale(1.2); /*essa vai ser a escala básica sem fazer nada, quando colocar o mouse em cima vai aumentar a escala*/
+    }
+
+    
+  .contato .icons {
+    text-align: center;
+  }  /* esse código vai deixar os ícones do linkdn e etc no centro*/
+
+  .contato a {
+    color: whitesmoke;
+    font-size: 4em;
+    transition: text-shadow 0.5s; /*transição mais suave, "animação"*/
+  }
+
+  .contato a:active, /*momento em que o usuario clica no efeito, usado para celualr pois celular nao tem mouse, tem que "clicar" para ativar*/
+  .contato a:hover {
+    text-decoration: none;
+    text-shadow: 2px 2px 15px white;
+  }
+
+  /*Esse div se refere a área externa da barra, o circulo em si
+  #divBusca{
+    background-color:rgba(244, 248, 248, 0.616);
+    border:solid 1px #080b218e;
+    border-radius:15px;
+    width:300px;
+    height:35px;
+  } */
+
+  #txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:5px; 
+    font-size:18px; /*tamanho da letra transparente*/
+    border:none; /*tira a caixa */
+    height:34px;
+    width:220px;
+  }
+
+  /*aqui são as configurações dos botoes */
+  #btnBusca{
+    border:none;
+    float:left;
+    height:34px;
+    border-radius:0 10px 10px 0;
+    width:76px;
+    font-weight:bold;
+    background:#090a28e7;
+    color:white;
+  }
+
